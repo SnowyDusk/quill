@@ -1,0 +1,42 @@
+GET http://localhost:7700/identity/welcome/verificationCode/qingtongh@163.com
+Accept: application/json
+
+###
+
+POST http://localhost:7700/identity/welcome/register
+Content-Type: application/json
+
+{
+  "name": "dusk",
+  "email": "qingtongh@163.com",
+  "password": "qingtongh",
+  "verificationCode": "4867"
+}
+
+###
+
+POST http://localhost:7700/identity/welcome/login
+Content-Type: application/json
+
+{
+  "email": "qingtongh@163.com",
+  "password": "qingtongh"
+}
+
+###
+
+GET http://localhost:7700/identity/personal/test
+uid: 1801193779064082432
+utoken: 1a89d138-52c1-48d2-8504-a6a5f72455e5
+
+###
+
+DELETE http://localhost:7700/identity/personal/logout
+uid: 1801193779064082432
+utoken: 1a89d138-52c1-48d2-8504-a6a5f72455e5
+
+###
+
+DELETE http://localhost:7700/identity/personal/logoff
+uid: 1801193779064082432
+utoken: 2dc6e6ff-dfb4-400e-9a3f-2cd7c46859f4

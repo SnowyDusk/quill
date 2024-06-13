@@ -1,0 +1,15 @@
+server:
+  port: 7700
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: identity
+          uri: lb://identity
+          predicates:
+            - Path=/identity/**

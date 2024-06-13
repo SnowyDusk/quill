@@ -1,0 +1,23 @@
+server:
+  port: 7799
+  servlet:
+    context-path: /mail
+
+spring:
+  application:
+    name: mail
+  data:
+    redis:
+      host: 192.168.1.114
+      port: 6379
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: snowy_dusk@163.com
+    password: GWRMZCSPUMXFKXAJ
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory

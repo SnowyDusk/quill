@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.114:8848
+        namespace: ffa893a6-b6c3-490d-8b80-0d279022dbde
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+
+rocketmq:
+  name-server: 192.168.1.114:9876
+  producer:
+    group: identity
+    send-message-timeout: 3000
+    retry-times-when-send-async-failed: 3

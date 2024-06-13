@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.quill</groupId>
+        <artifactId>quill</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>quill-common</artifactId>
+    <name>quill-common</name>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>quill-common-core</module>
+        <module>quill-common-util</module>
+        <module>quill-common-security</module>
+    </modules>
+
+</project>

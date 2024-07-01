@@ -21,12 +21,18 @@
         insert into user (user_id, name, email, avatar, gender, identity, status, password, create_time, update_time) values
             (#{userId}, #{name}, #{email}, #{avatar}, #{gender}, #{identity}, #{status}, #{password}, #{createTime}, #{updateTime})
     </insert>
+    <update id="updateIdentity">
+        update user set identity = #{identity} where user_id = #{userId}
+    </update>
     <delete id="deleteByUserId">
         delete from user where user_id = #{userId}
     </delete>
 
     <select id="selectByEmail" resultMap="UserMap">
         select * from user where email = #{email}
+    </select>
+    <select id="selectByUserId" resultMap="UserMap">
+        select * from user where user_id = #{userId};
     </select>
 
 

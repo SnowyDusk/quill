@@ -157,4 +157,14 @@ public class UserServiceImpl implements UserService {
 
         log.info("用户 {} 注销账户", userId);
     }
+
+    @Override
+    public void activeAuthorIdentity(Long userId) {
+        User user = userMapper.selectByUserId(userId);
+        if (user == null) {
+            throw new QuillException(ResponseStatus.USER_NOT_EXIST);
+        }
+
+        userMapper.updateIdentity(userId, user.getIdentity() | UserIdentity.AUTHOR);
+    }
 }

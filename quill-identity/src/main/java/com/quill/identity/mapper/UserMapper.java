@@ -6,6 +6,9 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
+
+    User selectByUserId(@Param("userId") Long userId);
+
     /**
      * 按照 邮箱 查询用户
      * 邮箱具有唯一性
@@ -15,4 +18,6 @@ public interface UserMapper {
     Integer insert(User user);
 
     Integer deleteByUserId(@Param("userId") Long userId);
+
+    Integer updateIdentity(@Param("userId") Long userId, @Param("identity") Integer identity);
 }

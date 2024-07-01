@@ -1,13 +1,11 @@
 package com.quill.common.security.config;
 
 import com.quill.common.security.interceptor.AuthInterceptor;
+import com.quill.common.security.interceptor.AuthorInterceptor;
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -17,19 +15,25 @@ import java.util.List;
 @Configuration
 public class SpringMvcConfig implements WebMvcConfigurer {
 
-    private static final List<String> excludePathPatterns = new ArrayList<>();
-    static {
-        excludePathPatterns.add("/welcome/**");
-    }
-
 
     @Resource
     private AuthInterceptor authInterceptor;
 
+    @Resource
+    private AuthorInterceptor authorInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
+        // 用户登录信息过滤器
         registry.addInterceptor(authInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns(excludePathPatterns);
+                .excludePathPatterns("/welcome/**");
+
+        // 作家专区过滤器
+        registry.addInterceptor(authorInterceptor)
+                .addPathPatterns("/identity/author/")
+                .excludePathPatterns("/identity/author/welcome/**");
+
     }
 }

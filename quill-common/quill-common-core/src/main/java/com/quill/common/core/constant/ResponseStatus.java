@@ -17,6 +17,9 @@ public enum ResponseStatus {
     EMAIL_NOT_EXIST(1007, "邮箱未注册"),
     PASSWORD_ERROR(1008, "密码错误"),
     USER_TOKEN_ERROR(1009, "登录信息错误"),
+    USER_NOT_EXIST(1010, "用户不存在"),
+
+    AUTHOR_NAME_EXIST(1101, "笔名已存在"),
 
     REQUEST_PARAM_ERROR(9001, "参数错误")
     ;

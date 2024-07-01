@@ -1,7 +1,6 @@
 package com.quill.common.security.interceptor;
 
 import com.quill.api.identity.bo.UserPermitBO;
-import com.quill.api.identity.dubbo.AuthDubboService;
 import com.quill.api.identity.feign.AuthFeignClient;
 import com.quill.common.core.feign.FeignAuthConfig;
 import com.quill.common.core.response.QuillResponse;
@@ -12,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import org.springframework.util.AntPathMatcher;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 /**
@@ -31,7 +29,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     private FeignAuthConfig feignAuthConfig;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
         String path = request.getRequestURI();
         log.info("收到访问 {} 的请求", path);

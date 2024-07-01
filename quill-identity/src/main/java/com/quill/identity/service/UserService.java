@@ -33,4 +33,10 @@ public interface UserService {
      */
     void logoff(Long userId);
 
+
+    /**
+     * 为用户添加作者身份
+     */
+    void activeAuthorIdentity(Long userId);
+
 }
